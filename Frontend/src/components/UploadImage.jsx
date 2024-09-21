@@ -25,7 +25,7 @@ function UploadImage({ reloadEffect }) {
         try {
             const formData = new FormData();
             formData.append("file", file);
-            const url = "http://localhost:3000/api/uploadImage";
+            const url = "https://crypto-vault-backend.onrender.com/api/uploadImage";
             const token = localStorage.getItem("token");
             const config = {
                 headers: {

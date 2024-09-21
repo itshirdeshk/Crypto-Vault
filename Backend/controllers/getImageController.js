@@ -39,7 +39,6 @@ async function getImageController(req, res, next) {
             }))
 
             for (const img of encryptedDataArray) {
-
                 const decryptedImgData = decryptData(img.encryptedData, img.iv, user.encryptionKey);
                 decryptedImageArray.push(decryptedImgData.toString('base64'));
             }

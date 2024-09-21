@@ -19,8 +19,8 @@ async function serverStart() {
         await connectDB(MONGODB_URI).then(() => console.log("DB Connected Successfully")
         ).catch((error) => console.log("DB not connected", error))
 
-        app.listen(3000, () => {
-            console.log("Server is running...");
+        app.listen(PORT, () => {
+            console.log("Server is running at PORT:", PORT);
         })
     } catch (error) {
         console.error(error);

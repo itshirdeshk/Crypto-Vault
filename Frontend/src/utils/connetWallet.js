@@ -25,7 +25,7 @@ export const connectWallet = async () => {
             signature
         }
 
-        const url = `http://localhost:3000/api/auth?address=${selectedAccount}`
+        const url = `https://crypto-vault-backend.onrender.com/api/auth?address=${selectedAccount}`
         const res = await axios.post(url, dataSignature);
         const token = res.data.token;
 
