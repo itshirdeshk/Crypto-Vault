@@ -25,17 +25,18 @@ export const connectWallet = async () => {
             signature
         }
 
-        const url = `http://localhost:3000/api/auth?address=${selectedAccount}` 
+        const url = `http://localhost:3000/api/auth?address=${selectedAccount}`
         const res = await axios.post(url, dataSignature);
-        console.log(res.data);
-        
-        const contractAddress = "0xf8e81D47203A594245E36C48e151709F0C19fBe8";
+        const token = res.data.token;
+
+        localStorage.setItem("token", token);
+
+        const contractAddress = "0x5F90FA0954aa2E02aAedaf444180Cd9Da4C9e5b2";
         const contractInstance = new ethers.Contract(contractAddress, contractAbi, signer);
 
         return { contractInstance, selectedAccount };
     } catch (error) {
         toast.error("Wallet connection failed")
         console.error(error);
-
     }
 }
